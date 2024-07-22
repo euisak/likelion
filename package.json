@@ -1,0 +1,30 @@
+{
+  "name": "likelion",
+  "version": "1.0.0",
+  "description": "The best way to watch videos.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/euisak/likelion.git"
+  },
+  "scripts": {
+    "dev": "nodemon --exec babel-node src/server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/euisak/likelion/issues"
+  },
+  "homepage": "https://github.com/euisak/likelion#readme",
+  "dependencies": {
+    "express": "^4.19.2",
+    "fullcalendar": "^6.1.15",
+    "morgan": "^1.10.0",
+    "pug": "^3.0.3"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.24.7",
+    "@babel/node": "^7.24.7",
+    "@babel/preset-env": "^7.24.7",
+    "nodemon": "^3.1.4"
+  }
+}
