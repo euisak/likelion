@@ -1,12 +1,30 @@
-doctype html 
+doctype html
 html(lang="ko")
-    head
-        title #{pageTitle} | Health In
-        
-        
-    body
-        header
-            h1=pageTitle
-        main
-            block content
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    title #{pageTitle} | Health In
+    link(rel="stylesheet", href="/stylesheets/style.css")
+  body
+    header
+      h1= pageTitle
+      nav
+        ul
+          li
+            a(href='/') 홈
+          li
+            a(href='/shopping') 쇼핑
+          li
+            a(href='/challenge') 챌린지
+          li
+            a(href='/post') 커뮤니티
+          li 
+            a(href=`search`) search
+        div.auth-links
+          a(href='/login') 로그인
+          a(href='/signup') 회원가입
+
+    main
+      block content
+    script(src="/javascripts/main.js")
     include partials/footer.pug

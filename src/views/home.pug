@@ -1,25 +1,18 @@
 extends base
 
 block content
+  header
+
 
   .calendar-container
     #calendar
+  
+  
+
 
   link(rel='stylesheet', href='/fullcalendar/main.css')
+  link(rel='stylesheet', href='/style.css')
   script(src='/jquery/dist/jquery-3.7.1.min.js')
   script(src='/fullcalendar/main.js')
   script(src='/javascripts/main.js')
 
-//-
-  h2 Welcome here you will see the trending posts
-  ul
-    each post in posts
-      li
-        h4= post.title
-        ul
-          li #{post.rating}/5.
-          li #{post.comments} comments.
-          li Posted #{post.createdAt}.
-          li #{post.views} views.
-    else
-      li Sorry nothing found.

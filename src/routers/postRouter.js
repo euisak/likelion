@@ -1,10 +1,12 @@
 import express from "express";
-import { see, edit, upload, deletePost } from "../controllers/postController";
+import { watch, post, getEdit, postEdit, getUpload, postUpload, deletePost } from "../controllers/postController";
 const postRouter = express.Router();
 
-postRouter.get("/upload", upload);
-postRouter.get("/:id(\\d+)", see);
-postRouter.get("/:id(\\d+)/edit", edit);
-postRouter.get("/:id(\\d+)/delete", deletePost);
+postRouter.get("/", post);
+
+postRouter.get("/:id([0-9a-f]{24})", watch);
+postRouter.route("/:id([0-9a-f]{24})/edit").get(getEdit).post(postEdit);
+postRouter.route("/:id([0-9a-f]{24})/delete").get(deletePost);
+postRouter.route("/upload").get(getUpload).post(postUpload);
 
 export default postRouter;

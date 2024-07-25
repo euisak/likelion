@@ -1,0 +1,25 @@
+extends base
+
+block content
+  header
+
+
+  .category-container
+    ul.category-list
+      li.category-item
+        a(href='/shopping?category=all') 전체
+      li.category-item
+        a(href='/shopping?category=fashion') 패션
+      li.category-item
+        a(href='/shopping?category=furniture') 가구
+      li.category-item
+        a(href='/shopping?category=food') 식품
+  .product-container
+    each product in products
+      .product
+        img(src=product.imageUrl alt=product.title)
+        h4= product.title
+        p= `${product.discount}% ${product.price.toLocaleString()}원`
+
+    if products.length === 0
+      p No products found.

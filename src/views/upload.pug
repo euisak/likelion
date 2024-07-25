@@ -1,0 +1,14 @@
+extends base.pug
+
+block content
+    if errorMessage 
+        span=errorMessage 
+    form(method="POST")
+        select(name="prefix", required)
+            option(value="") 말머리 선택
+            option(value="제품리뷰") 제품리뷰
+            option(value="운동추천") 운동추천
+            option(value="정보공유") 정보공유
+        input(placeholder="Title", name="title", required, type="text", maxlength=50)
+        input(placeholder="content", name="content" required, type="text")
+        input(type="submit", value="Upload Post")

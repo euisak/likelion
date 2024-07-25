@@ -1,4 +1,9 @@
 extends base.pug
 
 block content
-    h1 Watch Post
+    div
+        p=post.content 
+        small=post.createdAt
+    a(href=`${post.id}/edit`) Edit Post &rarr;
+    br
+    a(href=`${post.id}/delete`) Delete Post &rarr;

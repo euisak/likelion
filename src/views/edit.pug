@@ -1,4 +1,13 @@
 extends base.pug
 
 block content
-    h1 Edit Post
+  h4 Update Post
+  form(method="POST")
+    select(name="prefix", required)
+      option(value="", selected=post.prefix === "") 말머리 선택
+      option(value="제품리뷰", selected=post.prefix === "제품리뷰") 제품리뷰
+      option(value="운동추천", selected=post.prefix === "운동추천") 운동추천
+      option(value="정보공유", selected=post.prefix === "정보공유") 정보공유
+    input(name="title", placeholder="Post title", value=post.title, required, maxlength=50)
+    input(name="content", placeholder="Content", value=post.content, required)
+    input(value="Save", type="submit")
