@@ -2,8 +2,33 @@ extends base.pug
 
 block content
     div
-        p=post.content 
-        small=post.createdAt
-    a(href=`${post.id}/edit`) Edit Post &rarr;
+        p= post.content 
+        small= post.createdAt
+        small 조회수: #{post.meta.views}
+        br
+        small 좋아요: #{post.meta.like}
+        br
+        button(onclick="likePost()") 좋아요
+
+    a(href=`/post/${post._id}/edit`) Edit Post &rarr;
     br
-    a(href=`${post.id}/delete`) Delete Post &rarr;
+    a(href=`/post/${post._id}/delete`) Delete Post &rarr;
+
+block scripts
+    script.
+        // 서버 측 데이터 post를 자바스크립트 변수로 내보내기
+        const postId = '#{post._id}';
+        function likePost() {
+            fetch(`/post/${postId}/like`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            }).then(response => {
+                if(response.ok) {
+                    location.reload(); // 페이지 새로고침
+                } else {
+                    console.error('Failed to increase likes.');
+                }
+            }).catch(error => console.error('Error:', error));
+        }

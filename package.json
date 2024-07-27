@@ -20,7 +20,8 @@
     "fullcalendar": "^6.1.15",
     "mongoose": "^5.12.3",
     "morgan": "^1.10.0",
-    "pug": "^3.0.3"
+    "pug": "^3.0.3",
+    "quill": "^2.0.2"
   },
   "devDependencies": {
     "@babel/core": "^7.24.7",

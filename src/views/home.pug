@@ -7,6 +7,15 @@ block content
   .calendar-container
     #calendar
   
+  .top-posts
+    h2 인기 게시물 🔥
+    ul 
+      each post in top5Contents 
+        li 
+          small [#{post.prefix}]
+          a(href=`/post/${post._id}`) #{post.title}
+          small 👍#{post.meta.like}
+  
   
 
 
