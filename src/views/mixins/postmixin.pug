@@ -1,10 +1,10 @@
 mixin post(post)
-    div 
-        h4
-            a(href=`/post/${post.id}`)=`[${post.prefix}] ${post.title}`
-        p=`👍: ${post.meta.like}`
-        samll=post.createdAt
-        hr
+  div
+    h4
+      a(href=`/post/${post.id}`)= `[${post.prefix}] ${post.title}`
+    p=`👍: ${post.meta.like}`
+    small= post.toFormattedDate()  
+    hr
 
             
             
