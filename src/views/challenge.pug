@@ -1,0 +1,32 @@
+extends base
+
+block content
+    h1 챌린지 목록
+    nav
+        ul
+            li
+                a(href="/challenge/upload") 챌린지 업로드
+        ul
+            li
+                a(href="/challenge?category=전체") 전체
+            li
+                a(href="?category=생활습관") 생활습관
+            li
+                a(href="?category=운동") 운동
+        ul
+            li
+                a(href=`?category=${selectedCategory}&status=전체`) 전체 (진행중+완료)
+            li
+                a(href=`?category=${selectedCategory}&status=진행중`) 진행중
+            li
+                a(href=`?category=${selectedCategory}&status=완료`) 완료
+    if challenges.length
+        each challenge in challenges
+            div
+                h2
+                    a(href=`/challenge/${challenge._id}`)= challenge.prefix + " " + challenge.title
+                p!= challenge.description 
+                p= `참여자 수: ${challenge.meta.participants}`
+                p= `기간: ${new Date(challenge.startDate).toLocaleDateString()} - ${new Date(challenge.endDate).toLocaleDateString()}`
+    else
+        p 죄송합니다, 챌린지를 찾을 수 없습니다.

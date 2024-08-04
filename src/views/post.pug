@@ -1,0 +1,14 @@
+extends base.pug
+include mixins/postmixin
+
+block content 
+  nav 
+    ul  
+      li
+        a(href="/upload") Upload post  
+
+
+  each post in posts
+    +post(post)
+  else
+    li Sorry, nothing found.
